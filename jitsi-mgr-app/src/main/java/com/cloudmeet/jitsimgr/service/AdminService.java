@@ -1,5 +1,6 @@
 package com.cloudmeet.jitsimgr.service;
 
+import com.cloudmeet.jitsimgr.dto.RegistrationRequestDto;
 import com.cloudmeet.jitsimgr.dto.UserDto;
 import com.cloudmeet.jitsimgr.entity.AuditLog;
 import com.cloudmeet.jitsimgr.entity.RegistrationRequest;

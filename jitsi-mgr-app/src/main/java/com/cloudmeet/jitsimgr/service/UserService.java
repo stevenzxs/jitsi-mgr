@@ -1,5 +1,6 @@
 package com.cloudmeet.jitsimgr.service;
 
+import com.cloudmeet.jitsimgr.dto.SessionDto;
 import com.cloudmeet.jitsimgr.dto.UserDto;
 import com.cloudmeet.jitsimgr.entity.Session;
 import com.cloudmeet.jitsimgr.entity.User;
