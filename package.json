@@ -8,6 +8,7 @@
     "start": "node src/app.js",
     "dev": "node --watch src/app.js",
     "test": "node --test tests/**/*.test.js",
+    "test:api": "node tests/test-api.js",
     "db:migrate": "node scripts/migrate.js",
     "admin:create": "node scripts/create-admin.js"
   },

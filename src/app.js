@@ -6,6 +6,8 @@ import config from './config/index.js';
 import db from './config/database.js';
 import authService from './services/authService.js';
 import authRoutes from './routes/authRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 
 const app = express();
@@ -39,6 +41,8 @@ app.get('/health', (req, res) => {
 
 // API 路由
 app.use('/api/mgr/v1/auth', authRoutes);
+app.use('/api/mgr/v1/admin', adminRoutes);
+app.use('/api/mgr/v1/users', userRoutes);
 
 // 404 处理
 app.use(notFoundHandler);
