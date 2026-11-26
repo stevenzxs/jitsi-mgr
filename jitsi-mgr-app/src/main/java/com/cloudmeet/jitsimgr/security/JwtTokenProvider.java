@@ -1,7 +1,7 @@
 package com.cloudmeet.jitsimgr.security;
 
 import io.jsonwebtoken.*;
-import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.SignatureException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -90,13 +90,13 @@ public class JwtTokenProvider {
      */
     public Claims validateToken(String token) {
         try {
-            return Jwts.parserBuilder()
-                    .setSigningKey(publicKey)
+            return Jwts.parser()
+                    .verifyWith(publicKey)
                     .requireIssuer(issuer)
                     .requireAudience(audience)
                     .build()
-                    .parseClaimsJws(token)
-                    .getBody();
+                    .parseSignedClaims(token)
+                    .getPayload();
         } catch (ExpiredJwtException e) {
             log.debug("Token expired: {}", e.getMessage());
             throw new JwtException("Token expired");
